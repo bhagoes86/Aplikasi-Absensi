@@ -1,7 +1,7 @@
 package com.rizki.mufrizal.aplikasi.absensi.repository.eventHandler;
 
-import com.rizki.mufrizal.aplikasi.absensi.domain.User;
-import com.rizki.mufrizal.aplikasi.absensi.domain.UserRole;
+import com.rizki.mufrizal.aplikasi.absensi.domain.Asisten;
+import com.rizki.mufrizal.aplikasi.absensi.domain.AsistenRole;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
@@ -20,20 +20,20 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-@RepositoryEventHandler(User.class)
-public class UserRepositoryEventHandler {
+@RepositoryEventHandler(Asisten.class)
+public class AsistenRepositoryEventHandler {
 
     @HandleBeforeCreate
-    public void handleUserCreate(User user) {
+    public void handleUserCreate(Asisten asisten) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        asisten.setPassword(bCryptPasswordEncoder.encode(asisten.getPassword()));
 
-        UserRole userRole = new UserRole();
-        userRole.setUser(user);
+        AsistenRole asistenRole = new AsistenRole();
+        asistenRole.setAsisten(asisten);
 
-        Set<UserRole> userRoles = new HashSet<>();
-        userRoles.add(userRole);
-        user.setUserRoles(userRoles);
+        Set<AsistenRole> asistenRoles = new HashSet<>();
+        asistenRoles.add(asistenRole);
+        asisten.setAsistenRoles(asistenRoles);
     }
 
 }

@@ -3,8 +3,10 @@ package com.rizki.mufrizal.aplikasi.absensi.domain;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
@@ -29,7 +31,7 @@ import org.hibernate.annotations.GenericGenerator;
     @Index(columnList = "id_user_role", name = "idUserRole"),
     @Index(columnList = "role", name = "role")
 })
-public class UserRole implements Serializable {
+public class AsistenRole implements Serializable {
 
     @Id
     @Column(name = "id_user_role", length = 150)
@@ -42,8 +44,8 @@ public class UserRole implements Serializable {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "email")
-    private User user;
+    @JoinColumn(name = "npm", columnDefinition = "npm", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
+    private Asisten asisten;
 
     /**
      * @return the idUserRole
@@ -74,16 +76,17 @@ public class UserRole implements Serializable {
     }
 
     /**
-     * @return the user
+     * @return the asisten
      */
-    public User getUser() {
-        return user;
+    public Asisten getAsisten() {
+        return asisten;
     }
 
     /**
-     * @param user the user to set
+     * @param asisten the asisten to set
      */
-    public void setUser(User user) {
-        this.user = user;
+    public void setAsisten(Asisten asisten) {
+        this.asisten = asisten;
     }
+
 }

@@ -27,14 +27,17 @@ import javax.persistence.Table;
     @Index(columnList = "email", name = "email"),
     @Index(columnList = "nama", name = "nama")
 })
-public class User implements Serializable {
+public class Asisten implements Serializable {
 
     @Id
-    @Column(name = "email", length = 50)
-    private String email;
+    @Column(name = "npm", length = 8)
+    private String npm;
 
     @Column(name = "nama", length = 50)
     private String nama;
+
+    @Column(name = "kelas", length = 6)
+    private String kelas;
 
     @Column(name = "password", length = 150)
     private String password;
@@ -42,21 +45,24 @@ public class User implements Serializable {
     @Column(name = "enable", length = 50)
     private Boolean enable = Boolean.TRUE;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<UserRole> userRoles = new HashSet<>();
+    @OneToMany(mappedBy = "asisten", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<AsistenRole> asistenRoles = new HashSet<>();
+
+    @OneToMany(mappedBy = "asisten", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<AbsenKehadiran> absenKehadirans = new HashSet<>();
 
     /**
-     * @return the email
+     * @return the npm
      */
-    public String getEmail() {
-        return email;
+    public String getNpm() {
+        return npm;
     }
 
     /**
-     * @param email the email to set
+     * @param npm the npm to set
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNpm(String npm) {
+        this.npm = npm;
     }
 
     /**
@@ -71,6 +77,20 @@ public class User implements Serializable {
      */
     public void setNama(String nama) {
         this.nama = nama;
+    }
+
+    /**
+     * @return the kelas
+     */
+    public String getKelas() {
+        return kelas;
+    }
+
+    /**
+     * @param kelas the kelas to set
+     */
+    public void setKelas(String kelas) {
+        this.kelas = kelas;
     }
 
     /**
@@ -102,16 +122,31 @@ public class User implements Serializable {
     }
 
     /**
-     * @return the userRoles
+     * @return the asistenRoles
      */
-    public Set<UserRole> getUserRoles() {
-        return userRoles;
+    public Set<AsistenRole> getAsistenRoles() {
+        return asistenRoles;
     }
 
     /**
-     * @param userRoles the userRoles to set
+     * @param asistenRoles the asistenRoles to set
      */
-    public void setUserRoles(Set<UserRole> userRoles) {
-        this.userRoles = userRoles;
+    public void setAsistenRoles(Set<AsistenRole> asistenRoles) {
+        this.asistenRoles = asistenRoles;
     }
+
+    /**
+     * @return the absenKehadirans
+     */
+    public Set<AbsenKehadiran> getAbsenKehadirans() {
+        return absenKehadirans;
+    }
+
+    /**
+     * @param absenKehadirans the absenKehadirans to set
+     */
+    public void setAbsenKehadirans(Set<AbsenKehadiran> absenKehadirans) {
+        this.absenKehadirans = absenKehadirans;
+    }
+
 }

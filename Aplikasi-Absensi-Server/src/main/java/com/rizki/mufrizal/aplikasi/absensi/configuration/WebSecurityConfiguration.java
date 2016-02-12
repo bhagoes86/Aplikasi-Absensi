@@ -1,6 +1,6 @@
 package com.rizki.mufrizal.aplikasi.absensi.configuration;
 
-import com.rizki.mufrizal.aplikasi.absensi.service.UserService;
+import com.rizki.mufrizal.aplikasi.absensi.service.AsistenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +28,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserService userService;
+    private AsistenService asistenService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -38,7 +38,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder
-                .userDetailsService(userService)
+                .userDetailsService(asistenService)
                 .passwordEncoder(passwordEncoder());
     }
 

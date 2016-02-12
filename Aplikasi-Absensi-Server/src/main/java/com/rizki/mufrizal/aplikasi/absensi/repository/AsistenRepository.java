@@ -1,6 +1,6 @@
 package com.rizki.mufrizal.aplikasi.absensi.repository;
 
-import com.rizki.mufrizal.aplikasi.absensi.domain.User;
+import com.rizki.mufrizal.aplikasi.absensi.domain.Asisten;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
@@ -19,14 +19,14 @@ import org.springframework.security.access.prepost.PreAuthorize;
  *
  */
 @PreAuthorize("hasRole('ROLE_ADMIN')")
-@RepositoryRestResource(collectionResourceRel = "user", path = "user", collectionResourceDescription = @Description("API untuk crud data user"))
-public interface UserRepository extends PagingAndSortingRepository<User, String> {
+@RepositoryRestResource(collectionResourceRel = "asisten", path = "asisten", collectionResourceDescription = @Description("API untuk crud data asisten"))
+public interface AsistenRepository extends PagingAndSortingRepository<Asisten, String> {
 
     @PreAuthorize("permitAll")
-    @Query("select u from User u left join fetch u.userRoles pd where u.email = :email")
-    User LoginUser(@Param("email") String email);
+    @Query("select u from Asisten u left join fetch u.asistenRoles pd where u.npm = :npm")
+    Asisten LoginAsisten(@Param("npm") String npm);
 
     @Override
     @PreAuthorize("permitAll")
-    public <S extends User> S save(S s);
+    public <S extends Asisten> S save(S s);
 }
