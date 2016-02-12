@@ -1,0 +1,11 @@
+table absen_hari,,,,,,,,
+id,hari,,,,,,,
+1,senin,,,,,,,
+,,,,,,,,
+table absen kehadiran,,,,,,,,
+id,kelas,praktikum,ruang,asisten tetap,sesi,baris,id_table_absen,npm
+2,4IA04,RPL2,E1,mufrizal,1,A-D,1,58412085
+,,,,,,,,
+table_asisten,,,,,,,,
+npm,nama,kelas,password,enable,,,,
+58412085,rizki,4IA04,12345,TRUE,,,,
