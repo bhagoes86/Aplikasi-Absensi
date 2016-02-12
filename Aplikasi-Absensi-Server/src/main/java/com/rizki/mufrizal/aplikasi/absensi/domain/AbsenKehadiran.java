@@ -56,11 +56,11 @@ public class AbsenKehadiran implements Serializable {
     private String baris;
 
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "idAbsensiHari", columnDefinition = "id_absensi_hari", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
+    @JoinColumn(name = "idAbsensiHari", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
     private AbsenHari absenHari = new AbsenHari();
 
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "npm", columnDefinition = "npm", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
+    @JoinColumn(name = "npm", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
     private Asisten asisten = new Asisten();
 
     /**

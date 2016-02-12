@@ -27,38 +27,38 @@ import org.hibernate.annotations.GenericGenerator;
  *
  */
 @Entity
-@Table(name = "tb_user_role", indexes = {
-    @Index(columnList = "id_user_role", name = "idUserRole"),
+@Table(name = "tb_asisten_role", indexes = {
+    @Index(columnList = "id_asisten_role", name = "idAsistenRole"),
     @Index(columnList = "role", name = "role")
 })
 public class AsistenRole implements Serializable {
 
     @Id
-    @Column(name = "id_user_role", length = 150)
+    @Column(name = "id_asisten_role", length = 150)
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    private String idUserRole;
+    private String idAsistenRole;
 
     @Column(name = "role", length = 10)
     private String role = "ROLE_USER";
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "npm", columnDefinition = "npm", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
+    @JoinColumn(name = "npm", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
     private Asisten asisten;
 
     /**
-     * @return the idUserRole
+     * @return the idAsistenRole
      */
-    public String getIdUserRole() {
-        return idUserRole;
+    public String getIdAsistenRole() {
+        return idAsistenRole;
     }
 
     /**
-     * @param idUserRole the idUserRole to set
+     * @param idAsistenRole the idAsistenRole to set
      */
-    public void setIdUserRole(String idUserRole) {
-        this.idUserRole = idUserRole;
+    public void setIdAsistenRole(String idAsistenRole) {
+        this.idAsistenRole = idAsistenRole;
     }
 
     /**

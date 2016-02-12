@@ -23,8 +23,8 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "tb_user", indexes = {
-    @Index(columnList = "email", name = "email"),
+@Table(name = "tb_asisten", indexes = {
+    @Index(columnList = "npm", name = "npm"),
     @Index(columnList = "nama", name = "nama")
 })
 public class Asisten implements Serializable {
