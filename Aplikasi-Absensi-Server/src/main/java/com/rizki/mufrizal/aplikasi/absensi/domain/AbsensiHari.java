@@ -28,7 +28,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "tb_absensi_hari", indexes = {
     @Index(name = "idAbsensiHari", columnList = "id_absensi_hari")
 })
-public class AbsenHari implements Serializable {
+public class AbsensiHari implements Serializable {
 
     @Id
     @Column(name = "id_absensi_hari", length = 150)
@@ -39,8 +39,8 @@ public class AbsenHari implements Serializable {
     @Column(name = "hari", length = 10)
     private String hari;
 
-    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "absenHari", targetEntity = AbsenKehadiran.class)
-    private List<AbsenKehadiran> absenKehadirans = new ArrayList<>();
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "absensiHari", targetEntity = AbsensiKehadiran.class)
+    private List<AbsensiKehadiran> absensiKehadirans = new ArrayList<>();
 
     /**
      * @return the idAbsensiHari
@@ -71,17 +71,17 @@ public class AbsenHari implements Serializable {
     }
 
     /**
-     * @return the absenKehadirans
+     * @return the absensiKehadirans
      */
-    public List<AbsenKehadiran> getAbsenKehadirans() {
-        return absenKehadirans;
+    public List<AbsensiKehadiran> getAbsensiKehadirans() {
+        return absensiKehadirans;
     }
 
     /**
-     * @param absenKehadirans the absenKehadirans to set
+     * @param absensiKehadirans the absensiKehadirans to set
      */
-    public void setAbsenKehadirans(List<AbsenKehadiran> absenKehadirans) {
-        this.absenKehadirans = absenKehadirans;
+    public void setAbsensiKehadirans(List<AbsensiKehadiran> absensiKehadirans) {
+        this.absensiKehadirans = absensiKehadirans;
     }
 
 }

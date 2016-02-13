@@ -48,9 +48,6 @@ public class Asisten implements Serializable {
     @OneToMany(mappedBy = "asisten", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<AsistenRole> asistenRoles = new HashSet<>();
 
-    @OneToMany(mappedBy = "asisten", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<AbsenKehadiran> absenKehadirans = new HashSet<>();
-
     /**
      * @return the npm
      */
@@ -133,20 +130,6 @@ public class Asisten implements Serializable {
      */
     public void setAsistenRoles(Set<AsistenRole> asistenRoles) {
         this.asistenRoles = asistenRoles;
-    }
-
-    /**
-     * @return the absenKehadirans
-     */
-    public Set<AbsenKehadiran> getAbsenKehadirans() {
-        return absenKehadirans;
-    }
-
-    /**
-     * @param absenKehadirans the absenKehadirans to set
-     */
-    public void setAbsenKehadirans(Set<AbsenKehadiran> absenKehadirans) {
-        this.absenKehadirans = absenKehadirans;
     }
 
 }

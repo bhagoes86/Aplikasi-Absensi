@@ -29,13 +29,19 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "tb_absensi_kehadiran", indexes = {
     @Index(name = "idAbsenKehadiran", columnList = "id_absen_kehadiran")
 })
-public class AbsenKehadiran implements Serializable {
+public class AbsensiKehadiran implements Serializable {
 
     @Id
     @Column(name = "id_absen_kehadiran", length = 150)
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @GeneratedValue(generator = "uuid2")
     private String idAbsenKehadiran;
+
+    @Column(name = "npm_asisten", length = 8)
+    private String npmAsisten;
+
+    @Column(name = "nama_asisten", length = 50)
+    private String namaAsisten;
 
     @Column(name = "mata_praktikum", length = 50)
     private String mataPraktikum;
@@ -57,11 +63,7 @@ public class AbsenKehadiran implements Serializable {
 
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name = "idAbsensiHari", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
-    private AbsenHari absenHari = new AbsenHari();
-
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "npm", nullable = false, foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
-    private Asisten asisten = new Asisten();
+    private AbsensiHari absensiHari = new AbsensiHari();
 
     /**
      * @return the idAbsenKehadiran
@@ -75,6 +77,34 @@ public class AbsenKehadiran implements Serializable {
      */
     public void setIdAbsenKehadiran(String idAbsenKehadiran) {
         this.idAbsenKehadiran = idAbsenKehadiran;
+    }
+
+    /**
+     * @return the npmAsisten
+     */
+    public String getNpmAsisten() {
+        return npmAsisten;
+    }
+
+    /**
+     * @param npmAsisten the npmAsisten to set
+     */
+    public void setNpmAsisten(String npmAsisten) {
+        this.npmAsisten = npmAsisten;
+    }
+
+    /**
+     * @return the namaAsisten
+     */
+    public String getNamaAsisten() {
+        return namaAsisten;
+    }
+
+    /**
+     * @param namaAsisten the namaAsisten to set
+     */
+    public void setNamaAsisten(String namaAsisten) {
+        this.namaAsisten = namaAsisten;
     }
 
     /**
@@ -162,31 +192,17 @@ public class AbsenKehadiran implements Serializable {
     }
 
     /**
-     * @return the absenHari
+     * @return the absensiHari
      */
-    public AbsenHari getAbsenHari() {
-        return absenHari;
+    public AbsensiHari getAbsensiHari() {
+        return absensiHari;
     }
 
     /**
-     * @param absenHari the absenHari to set
+     * @param absensiHari the absensiHari to set
      */
-    public void setAbsenHari(AbsenHari absenHari) {
-        this.absenHari = absenHari;
-    }
-
-    /**
-     * @return the asisten
-     */
-    public Asisten getAsisten() {
-        return asisten;
-    }
-
-    /**
-     * @param asisten the asisten to set
-     */
-    public void setAsisten(Asisten asisten) {
-        this.asisten = asisten;
+    public void setAbsensiHari(AbsensiHari absensiHari) {
+        this.absensiHari = absensiHari;
     }
 
 }
