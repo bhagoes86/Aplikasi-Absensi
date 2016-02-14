@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+
+ @Author Rizki Mufrizal <mufrizalrizki@gmail.com>
+ @Since Feb 14, 2016
+ @Time 11:37:34 AM
+ @Encoding UTF-8
+ @Project Aplikasi-Absensi-Server
+ @Package Expression package is undefined on line 9, column 13 in Templates/Other/html.html.
+  
+-->
+<div class="row">
+    <form class="col s5 offset-s4">
+        <div class="row">
+            <div class="input-field col s12">
+                <input ng-model="auth.inputLogin.npm" id="npm" type="text" class="validate" />
+                <label for="npm">NPM</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input ng-model="auth.inputLogin.password" id="password" type="password" class="validate" />
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <button ng-click="auth.loginProcess(auth.inputLogin)" class="waves-effect waves-light btn z-depth-2 col s12">Login</button>
+            </div>
+        </div>
+    </form>
+</div>
