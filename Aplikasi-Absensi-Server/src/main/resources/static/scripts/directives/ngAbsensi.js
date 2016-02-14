@@ -12,14 +12,16 @@
 (function() {
   'use strict';
   angular.module('Aplikasi-Absensi')
-    .directive('ngAsisten', ngAsisten);
+    .directive('ngAbsensi', ngAbsensi);
 
-  ngAsisten.$inject = ['UrlService'];
+  ngAbsensi.$inject = ['UrlService'];
 
-  function ngAsisten(UrlService) {
+  function ngAbsensi(UrlService) {
     return {
       restrict: 'E',
-      templateUrl: UrlService.absensiTemplate()
+      templateUrl: UrlService.absensiTemplate(),
+      controller: 'AbsensiController',
+      controllerAs: 'absensi'
     };
   }
 
