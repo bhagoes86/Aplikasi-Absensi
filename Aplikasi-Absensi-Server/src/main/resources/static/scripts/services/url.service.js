@@ -32,6 +32,9 @@
       },
       loginProcess: function() {
         return 'oauth/token';
+      },
+      getAllAbsensiAsisten: function(page, size) {
+        return 'api/absensi?page=' + page + '&size=' + size;
       }
     };
   }
