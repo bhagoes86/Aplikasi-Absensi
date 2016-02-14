@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+
+ @Author Rizki Mufrizal <mufrizalrizki@gmail.com>
+ @Since Feb 14, 2016
+ @Time 11:33:10 AM
+ @Encoding UTF-8
+ @Project Aplikasi-Absensi-Server
+ @Package Expression package is undefined on line 9, column 13 in Templates/Other/html.html.
+
+-->
+
+<h2 class="center">Daftar Absensi Asisten</h2>
+
+<table class="bordered striped highlight centered responsive-table z-depth-2" ng-hide="absensi.dataAbsensi.length === 0">
+    <thead>
+        <tr>
+            <th>Kelas Praktikum</th>
+            <th>Mata Praktikum</th>
+            <th>Ruang Praktikum</th>
+            <th>NPM Asisten</th>
+            <th>Nama Asisten</th>
+            <th>Baris Jaga</th>
+            <th>Hari Jaga</th>
+            <th>Tanggal Jaga</th>
+            <th>Sesi Jaga</th>
+            <th>Nama Asisten Tetap</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="a in absensi.dataAbsensi">
+        <tr>
+            <td>{{a.kelasPraktikum}}</td>
+            <td>{{a.mataPraktikum}}</td>
+            <td>{{a.ruangPraktikum}}</td>
+            <td>{{a.npmAsisten}}</td>
+            <td>{{a.namaAsisten}}</td>
+            <td>{{a.barisJaga}}</td>
+            <td>{{a.hariJaga}}</td>
+            <td>{{a.tanggalJaga}}</td>
+            <td>{{a.sesiJaga}}</td>
+            <td>{{a.namaAsistenTetap}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="pagination" ng-hide="absensi.dataAbsensi.length === 0">
+    <button ng-disabled="absensi.hasPreviousPage" ng-click="absensi.previousPage()" type="button" class="waves-effect waves-light btn z-depth-2">
+        <i class="fa fa-chevron-left"></i>
+    </button>
+    <button class="btn-flat disabled z-depth-2">
+        {{absensi.paging.page + 1}}
+        dari
+        {{absensi.paging.totalPages}}
+    </button>
+    <button ng-disabled="absensi.hasNextPage" ng-click="absensi.nextPage()" type="button" class="waves-effect waves-light btn z-depth-2">
+        <i class="fa fa-chevron-right"></i>
+    </button>
+</ul>
+
+<div class="container center" ng-show="absensi.dataAbsensi.length === 0">
+    <div class="card z-depth-2">
+        <div class="card-content">
+            <p>Maaf, data absensi asisten masih kosong</p>
+        </div>
+    </div>
+</div>
