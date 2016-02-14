@@ -92,7 +92,9 @@
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
                 'scripts/services/url.service.js',
-                'scripts/directives/ngAsisten.js'
+                'scripts/directives/ngAbsensi.js',
+                'scripts/services/absensi.service.js',
+                'scripts/controllers/absensi.controller.js'
               ]);
             }]
           },
@@ -109,6 +111,9 @@
           },
           'responseError': function(rejection) {
             if (rejection.status === 401) {
+              $window.location.href = '#/login';
+            }
+            if (rejection.status === 403) {
               $window.location.href = '#/login';
             }
             return $q.reject(rejection);
