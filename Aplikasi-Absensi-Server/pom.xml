@@ -23,6 +23,7 @@
         <java.version>1.8</java.version>
         <jquery.version>2.2.0</jquery.version>
         <bootstrap.version>3.3.6</bootstrap.version>
+        <bootstrap-material-design.version>0.3.0</bootstrap-material-design.version>
         <angular.version>1.5.0</angular.version>
         <angular-ui-router.version>0.2.17</angular-ui-router.version>
         <angular-loading-bar.version>0.8.0</angular-loading-bar.version>
@@ -109,7 +110,7 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
         </dependency>
-        
+                
         <dependency>
             <groupId>org.webjars.bower</groupId>
             <artifactId>jquery</artifactId>
@@ -120,6 +121,12 @@
             <groupId>org.webjars.bower</groupId>
             <artifactId>bootstrap</artifactId>
             <version>${bootstrap.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap-material-design</artifactId>
+            <version>${bootstrap-material-design.version}</version>
         </dependency>
         
         <dependency>
@@ -145,7 +152,7 @@
             <artifactId>ocLazyLoad</artifactId>
             <version>${oclazyload.version}</version>
         </dependency>
-        
+
     </dependencies>
 	
     <build>
