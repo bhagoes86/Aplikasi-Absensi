@@ -22,8 +22,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <jquery.version>2.2.0</jquery.version>
-        <bootstrap.version>3.3.6</bootstrap.version>
-        <bootstrap-material-design.version>0.3.0</bootstrap-material-design.version>
+        <materialize.version>0.97.5</materialize.version>
+        <bootstrap-sweetalert.version>0.4.5</bootstrap-sweetalert.version>
         <angular.version>1.5.0</angular.version>
         <angular-ui-router.version>0.2.17</angular-ui-router.version>
         <angular-loading-bar.version>0.8.0</angular-loading-bar.version>
@@ -33,109 +33,109 @@
     </properties>
 
     <dependencies>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-jwt</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-redis</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
         </dependency>
-                
+
         <dependency>
             <groupId>org.webjars.bower</groupId>
             <artifactId>jquery</artifactId>
             <version>${jquery.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.webjars.bower</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>${bootstrap.version}</version>
+            <artifactId>materialize</artifactId>
+            <version>${materialize.version}</version>
         </dependency>
-        
+                
         <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>bootstrap-material-design</artifactId>
-            <version>${bootstrap-material-design.version}</version>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>bootstrap-sweetalert</artifactId>
+            <version>${bootstrap-sweetalert.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.webjars.bower</groupId>
             <artifactId>angular</artifactId>
             <version>${angular.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>angular-ui-router</artifactId>
@@ -147,19 +147,19 @@
             <artifactId>angular-loading-bar</artifactId>
             <version>${angular-loading-bar.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.webjars.bower</groupId>
             <artifactId>ocLazyLoad</artifactId>
             <version>${oclazyload.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.webjars.bower</groupId>
             <artifactId>angular-cookies</artifactId>
             <version>${angular.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.webjars.bower</groupId>
             <artifactId>angular-base64</artifactId>
@@ -167,7 +167,7 @@
         </dependency>
 
     </dependencies>
-	
+
     <build>
         <plugins>
             <plugin>
@@ -186,5 +186,5 @@
             </plugin>
         </plugins>
     </build>
-	
+
 </project>
