@@ -14,8 +14,7 @@ angular
     'ionic',
     'ngCordova'
   ])
-  .run(['$rootScope', '$state', 'AuthService', '$ionicPlatform', function($rootScope, $state, AuthService, $ionicPlatform) {
-
+  .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -25,15 +24,7 @@ angular
         StatusBar.styleDefault();
       }
     });
-
-    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-      if (toState.authenticate && !AuthService.isAuthenticate()) {
-        $state.go('tab.login');
-        event.preventDefault();
-      }
-    });
-
-  }])
+  })
   .config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/tab/home');
@@ -42,8 +33,7 @@ angular
       .state('tab', {
         url: '/tab',
         abstract: true,
-        templateUrl: 'templates/tabs.html',
-        authenticate: false
+        templateUrl: 'templates/tabs.html'
       })
       .state('tab.home', {
         url: '/home',
@@ -51,18 +41,15 @@ angular
           'tab-home': {
             templateUrl: 'templates/home.template.html'
           }
-        },
-        authenticate: false
+        }
       })
-      .state('tab.login', {
-        url: '/login',
+      .state('tab.about', {
+        url: '/about',
         views: {
-          'tab-login': {
-            templateUrl: 'templates/authenticate.template.html',
-            controller: 'AuthenticateController'
+          'tab-about': {
+            templateUrl: 'templates/about.template.html'
           }
-        },
-        authenticate: false
+        }
       })
       .state('tab.absensi', {
         url: '/absensi',
@@ -70,8 +57,7 @@ angular
           'tab-absensi': {
             templateUrl: 'templates/absensi.template.html'
           }
-        },
-        authenticate: true
+        }
       });
 
   });
