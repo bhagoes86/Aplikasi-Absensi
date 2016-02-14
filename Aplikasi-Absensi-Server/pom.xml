@@ -29,6 +29,7 @@
         <angular-loading-bar.version>0.8.0</angular-loading-bar.version>
         <oclazyload.version>1.0.9</oclazyload.version>
         <springloaded.version>1.2.5.RELEASE</springloaded.version>
+        <angular-base64.version>2.0.4</angular-base64.version>
     </properties>
 
     <dependencies>
@@ -151,6 +152,18 @@
             <groupId>org.webjars.bower</groupId>
             <artifactId>ocLazyLoad</artifactId>
             <version>${oclazyload.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>angular-cookies</artifactId>
+            <version>${angular.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>angular-base64</artifactId>
+            <version>${angular-base64.version}</version>
         </dependency>
 
     </dependencies>
