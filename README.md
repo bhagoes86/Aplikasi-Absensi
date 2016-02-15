@@ -26,3 +26,9 @@
 * Lihat Daftar Hadir Asisten
 * Cetak Laporan Kehadiran Asisten per bulan, minggu
 * Scan kehadiran Asisten
+
+## Fitur Yang Telah Selesai
+
+* Cetak kartu asisten
+* Sign Up dan Sign In Asisten
+* Lihat daftar seluruh absensi asisten
