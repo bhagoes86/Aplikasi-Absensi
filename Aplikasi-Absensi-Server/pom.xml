@@ -30,6 +30,7 @@
         <oclazyload.version>1.0.9</oclazyload.version>
         <springloaded.version>1.2.5.RELEASE</springloaded.version>
         <angular-base64.version>2.0.4</angular-base64.version>
+        <font-awesome.version>4.5.0</font-awesome.version>
         <jasperreports.version>6.2.0</jasperreports.version>
         <poi.version>3.13</poi.version>
         <batik-all.version>1.8pre-r1084380</batik-all.version>
@@ -163,6 +164,12 @@
             <groupId>org.webjars.bower</groupId>
             <artifactId>angular-cookies</artifactId>
             <version>${angular.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>${font-awesome.version}</version>
         </dependency>
 
         <dependency>
