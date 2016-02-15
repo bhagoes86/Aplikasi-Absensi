@@ -42,6 +42,9 @@ public class Asisten implements Serializable {
     @Column(name = "password", length = 150)
     private String password;
 
+    @Column(name = "foto", length = 150)
+    private String foto;
+
     @Column(name = "enable", length = 50)
     private Boolean enable = Boolean.TRUE;
 
@@ -102,6 +105,20 @@ public class Asisten implements Serializable {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * @return the foto
+     */
+    public String getFoto() {
+        return foto;
+    }
+
+    /**
+     * @param foto the foto to set
+     */
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     /**
