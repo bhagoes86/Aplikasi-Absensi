@@ -8,8 +8,24 @@
  @Package Expression package is undefined on line 9, column 13 in Templates/Other/html.html.
 
 -->
-<ion-view view-title="Scan Absensi">
-  <ion-content class="padding">
-    test
-  </ion-content>
+<ion-view view-title="Scanner">
+    <ion-content style="background: #e8ebf1;" class="padding">
+        <div class="card">
+            <div class="item">
+                <button class="button button-block button-positive" ng-click="scanBarcode()">
+                    <i class="icon ion-qr-scanner"></i>
+                    Scan Now
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="item item-divider">
+                Scan Results
+            </div>
+            <div class="item item-text-wrap" ng-if="hasilScan != ''">
+                NPM Asisten : {{hasilScan}}
+            </div>
+        </div>
+    </ion-content>
 </ion-view>
