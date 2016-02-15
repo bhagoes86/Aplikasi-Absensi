@@ -30,7 +30,7 @@ public interface AsistenRepository extends PagingAndSortingRepository<Asisten, S
     @Override
     public <S extends Asisten> S save(S s);
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("permitAll")
     @Override
     public Asisten findOne(String id);
 }
