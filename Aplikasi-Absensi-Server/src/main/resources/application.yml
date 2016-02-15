@@ -8,9 +8,12 @@
  # @Package Expression package is undefined on line 8, column 15 in Templates/Other/properties.properties.
  # 
  ##
-
-# spring datasource jpa
-spring: 
+ 
+spring:
+    profiles:
+        active: development
+        
+    # spring datasource jpa
     datasource: 
         driver-class-name: org.postgresql.Driver
         url: jdbc:postgresql://127.0.0.1:5432/absensi?autoReconnect=true
