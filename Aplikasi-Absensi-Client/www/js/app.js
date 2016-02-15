@@ -48,7 +48,8 @@ angular
         url: '/absensi',
         views: {
           'menuContent': {
-            templateUrl: 'templates/absensi.template.html'
+            templateUrl: 'templates/absensi.template.html',
+            controller: 'AbsensiController'
           }
         }
       })
