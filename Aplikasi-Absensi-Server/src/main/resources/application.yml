@@ -61,3 +61,10 @@ server:
     tomcat: 
         access_log_enabled: true
         basedir: target/tomcat
+
+# multipart
+multipart: 
+    enabled: true
+    location: classpath:uploads
+    max-file-size: 10Mb
+    max-request-size: 10Mb
