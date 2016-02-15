@@ -4,7 +4,7 @@
     </ion-header-bar>
     <ion-content>
 
-        <form>
+        <form ng-show="enable">
             <div class="list">
                 <label class="item item-input">
                     <input placeholder="Nama Asisten Tetap" type="text" ng-model="inputAbsensiAsisten.namaAsistenTetap">
@@ -23,6 +23,17 @@
                 </label>
                 <label class="item item-input">
                     <input placeholder="Sesi Jaga" type="text" ng-model="inputAbsensiAsisten.sesiJaga">
+                </label>
+                <label class="item">
+                    <button ng-click="simpanAbsensiAsisten(inputAbsensiAsisten)" class="button button-block button-positive" type="submit">Simpan</button>
+                </label>
+            </div>
+        </form>
+
+        <form ng-hide="enable">
+            <div class="list">
+                <label class="item item-input">
+                    <input placeholder="Baris Jaga" type="text" ng-model="inputAbsensiAsisten.barisJaga">
                 </label>
                 <label class="item">
                     <button ng-click="simpanAbsensiAsisten(inputAbsensiAsisten)" class="button button-block button-positive" type="submit">Simpan</button>
