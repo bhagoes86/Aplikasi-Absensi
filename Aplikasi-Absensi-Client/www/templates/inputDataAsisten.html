@@ -1,0 +1,34 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Absensi Asisten</h1>
+    </ion-header-bar>
+    <ion-content>
+
+        <form>
+            <div class="list">
+                <label class="item item-input">
+                    <input placeholder="Nama Asisten Tetap" type="text" ng-model="inputAbsensiAsisten.namaAsistenTetap">
+                </label>
+                <label class="item item-input">
+                    <input placeholder="Mata Praktikum" type="text" ng-model="inputAbsensiAsisten.mataPraktikum">
+                </label>
+                <label class="item item-input">
+                    <input placeholder="Kelas Praktikum" type="text" ng-model="inputAbsensiAsisten.kelasPraktikum">
+                </label>
+                <label class="item item-input">
+                    <input placeholder="Ruang Praktikum" type="text" ng-model="inputAbsensiAsisten.ruangPraktikum">
+                </label>
+                <label class="item item-input">
+                    <input placeholder="Baris Jaga" type="text" ng-model="inputAbsensiAsisten.barisJaga">
+                </label>
+                <label class="item item-input">
+                    <input placeholder="Sesi Jaga" type="text" ng-model="inputAbsensiAsisten.sesiJaga">
+                </label>
+                <label class="item">
+                    <button ng-click="simpanAbsensiAsisten(inputAbsensiAsisten)" class="button button-block button-positive" type="submit">Simpan</button>
+                </label>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-modal-view>
