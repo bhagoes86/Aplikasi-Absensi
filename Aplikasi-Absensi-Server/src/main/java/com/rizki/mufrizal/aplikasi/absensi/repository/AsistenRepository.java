@@ -26,7 +26,11 @@ public interface AsistenRepository extends PagingAndSortingRepository<Asisten, S
     @Query("select u from Asisten u left join fetch u.asistenRoles pd where u.npm = :npm")
     Asisten LoginAsisten(@Param("npm") String npm);
 
-    @Override
     @PreAuthorize("permitAll")
+    @Override
     public <S extends Asisten> S save(S s);
+
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @Override
+    public Asisten findOne(String id);
 }
