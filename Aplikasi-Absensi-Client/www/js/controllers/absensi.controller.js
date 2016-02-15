@@ -35,8 +35,8 @@ angular.module('Aplikasi-Absensi')
       $scope.dataAbsensiAsisten.namaAsistenTetap = a.namaAsistenTetap;
       $scope.dataAbsensiAsisten.barisJaga = a.barisJaga;
       $scope.dataAbsensiAsisten.mataPraktikum = a.mataPraktikum;
-      $scope.kelasPraktikum = a.kelasPraktikum;
-      $scope.ruangPraktikum = a.ruangPraktikum;
+      $scope.dataAbsensiAsisten.kelasPraktikum = a.kelasPraktikum;
+      $scope.dataAbsensiAsisten.ruangPraktikum = a.ruangPraktikum;
       $scope.dataAbsensiAsisten.sesiJaga = a.sesiJaga;
       $scope.dataAbsensiAsisten.hariJaga = hari[d.getDay()];
       $scope.dataAbsensiAsisten.tanggalJaga = d;
@@ -45,15 +45,44 @@ angular.module('Aplikasi-Absensi')
     };
 
     $scope.scanBarcode = function() {
+
       $cordovaBarcodeScanner
         .scan()
         .then(function(barcodeData) {
-          $scope.dataAbsensiAsisten.npmAsisten = barcodeData.text;
 
-          AbsensiService.simpanAbsensiAsisten($scope, dataAbsensiAsisten).success(function(data) {
+          $scope.hasilScan = barcodeData.text;
+
+          AbsensiService.checkNpmAsisten(barcodeData.text).success(function(data) {
+
+            $scope.dataAbsensiAsisten.npmAsisten = barcodeData.text;
+            $scope.dataAbsensiAsisten.namaAsisten = data.nama;
+
+            AbsensiService.simpanAbsensiAsisten($scope.dataAbsensiAsisten).success(function(data) {
+              $ionicPopup.show({
+                template: 'Berhasil melakukan absensi',
+                title: 'Info',
+                scope: $scope,
+                buttons: [{
+                  text: '<b>OK</b>',
+                  type: 'button-positive'
+                }]
+              });
+            }).error(function(data, status) {
+              $ionicPopup.show({
+                template: 'Maaf sedang terjadi kesalahan',
+                title: 'Info',
+                scope: $scope,
+                buttons: [{
+                  text: '<b>OK</b>',
+                  type: 'button-positive'
+                }]
+              });
+            });
+
+          }).error(function(data, status) {
             $ionicPopup.show({
-              template: 'Berhasil melakukan absensi',
-              title: 'Info',
+              template: 'Maaf Data asisten tidak ditemukan',
+              title: 'Warning',
               scope: $scope,
               buttons: [{
                 text: '<b>OK</b>',
@@ -62,7 +91,18 @@ angular.module('Aplikasi-Absensi')
             });
           });
 
-        }, function(error) {});
+        }, function(error) {
+          $ionicPopup.show({
+            template: 'Maaf sedang terjadi kesalahan pada saat melakukan scan barcode',
+            title: 'Info',
+            scope: $scope,
+            buttons: [{
+              text: '<b>OK</b>',
+              type: 'button-positive'
+            }]
+          });
+        });
+
     };
 
   }]);
