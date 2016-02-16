@@ -52,10 +52,10 @@ public class AbsensiAsisten implements Serializable {
     @Column(name = "hari", length = 10)
     private String hariJaga;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date tanggalJaga;
-    
-        @Column(name = "mata_praktikum", length = 50)
+
+    @Column(name = "mata_praktikum", length = 50)
     private String mataPraktikum;
 
     @Column(name = "kelas_praktikum", length = 6)
