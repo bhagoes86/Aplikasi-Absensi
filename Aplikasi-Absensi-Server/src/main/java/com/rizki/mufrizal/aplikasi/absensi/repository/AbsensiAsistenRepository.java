@@ -29,4 +29,8 @@ public interface AbsensiAsistenRepository extends PagingAndSortingRepository<Abs
     @PreAuthorize("permitAll")
     @Override
     public <S extends AbsensiAsisten> S save(S s);
+
+    @PreAuthorize("permitAll")
+    @Override
+    public Iterable<AbsensiAsisten> findAll();
 }
