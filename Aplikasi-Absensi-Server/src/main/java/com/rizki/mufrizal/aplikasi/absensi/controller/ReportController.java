@@ -1,6 +1,7 @@
 package com.rizki.mufrizal.aplikasi.absensi.controller;
 
 import com.rizki.mufrizal.aplikasi.absensi.domain.Asisten;
+import com.rizki.mufrizal.aplikasi.absensi.repository.AbsensiAsistenRepository;
 import com.rizki.mufrizal.aplikasi.absensi.repository.AsistenRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,9 @@ public class ReportController {
     @Autowired
     private AsistenRepository asistenRepository;
 
+    @Autowired
+    private AbsensiAsistenRepository absensiAsistenRepository;
+
     @RequestMapping(value = "/KartuAsisten", method = RequestMethod.GET)
     public ModelAndView generateKartuAsisten(
             ModelAndView modelAndView,
@@ -41,6 +45,17 @@ public class ReportController {
         modelAndView.addObject("format", "pdf");
 
         modelAndView.setViewName("report_kartu_asisten");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/LaporanAbsensiAsisten", method = RequestMethod.GET)
+    public ModelAndView generateLaporanAbsensiAsisten(
+            ModelAndView modelAndView) {
+
+        modelAndView.addObject("dataSource", absensiAsistenRepository.findAll());
+        modelAndView.addObject("format", "pdf");
+
+        modelAndView.setViewName("report_absensi_asisten");
         return modelAndView;
     }
 
