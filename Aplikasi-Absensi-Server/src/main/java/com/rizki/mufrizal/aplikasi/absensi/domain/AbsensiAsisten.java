@@ -1,15 +1,13 @@
 package com.rizki.mufrizal.aplikasi.absensi.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -52,8 +50,8 @@ public class AbsensiAsisten implements Serializable {
     @Column(name = "hari", length = 10)
     private String hariJaga;
 
-    @Temporal(TemporalType.DATE)
-    private Date tanggalJaga;
+    @Column(name = "tanggal_jaga")
+    private LocalDate tanggalJaga;
 
     @Column(name = "mata_praktikum", length = 50)
     private String mataPraktikum;
@@ -165,14 +163,14 @@ public class AbsensiAsisten implements Serializable {
     /**
      * @return the tanggalJaga
      */
-    public Date getTanggalJaga() {
+    public LocalDate getTanggalJaga() {
         return tanggalJaga;
     }
 
     /**
      * @param tanggalJaga the tanggalJaga to set
      */
-    public void setTanggalJaga(Date tanggalJaga) {
+    public void setTanggalJaga(LocalDate tanggalJaga) {
         this.tanggalJaga = tanggalJaga;
     }
 
