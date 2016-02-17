@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-02-17T14:43:46 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_absensi_asisten" pageWidth="1126" pageHeight="595" orientation="Landscape" columnWidth="1086" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9c9381ab-0f73-4873-bd49-40227f855a48">
+    <property name="com.jaspersoft.studio.unit." value="pixel"/>
+    <queryString>
+		<![CDATA[]]>
+    </queryString>
+    <field name="npmAsisten" class="java.lang.String"/>
+    <field name="namaAsisten" class="java.lang.String"/>
+    <field name="namaAsistenTetap" class="java.lang.String"/>
+    <field name="sesiJaga" class="java.lang.Integer"/>
+    <field name="barisJaga" class="java.lang.String"/>
+    <field name="hariJaga" class="java.lang.String"/>
+    <field name="tanggalJaga" class="java.util.Date"/>
+    <field name="mataPraktikum" class="java.lang.String"/>
+    <field name="kelasPraktikum" class="java.lang.String"/>
+    <field name="ruangPraktikum" class="java.lang.String"/>
+    <variable name="noUrut" class="java.lang.Integer" resetType="None" incrementType="Report" calculation="Count">
+        <variableExpression><![CDATA[$V{noUrut}.intValue()]]></variableExpression>
+    </variable>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="74" splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+            <rectangle>
+                <reportElement x="0" y="0" width="1085" height="74" forecolor="#066990" backcolor="#066990" uuid="97f34171-f7bc-4f4a-ace7-a76089670e82"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="0" y="0" width="1085" height="43" forecolor="#FFFFFF" uuid="df704b3e-f8d4-4d82-a77e-ca09622d8414"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="34" isBold="true"/>
+                </textElement>
+                <text><![CDATA[DAFTAR ABSENSI ASISTEN]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="43" width="1085" height="30" forecolor="#FFFFFF" uuid="4adc44fe-cef1-4c4f-b0cd-9dc58d731d7c"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Laboratorium Teknik Informatika]]></text>
+            </staticText>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="46" splitType="Stretch">
+            <staticText>
+                <reportElement key="" mode="Opaque" x="30" y="16" width="100" height="30" backcolor="#E6E6E6" uuid="7c159324-936d-4292-857e-39d063e78f4c"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" isBold="true"/>
+                </textElement>
+                <text><![CDATA[NPM Asisten]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="16" width="30" height="30" backcolor="#E6E6E6" uuid="9c65eb1c-9320-4ebc-bdf9-b0c8dc486d75"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" isBold="true"/>
+                </textElement>
+                <text><![CDATA[No]]></text>
+            </staticText>
+            <staticText>
+                <reportElement key="" mode="Opaque" x="130" y="16" width="130" height="30" backcolor="#E6E6E6" uuid="19f1ac5e-0119-46cd-b83e-8e39c373bd4e"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nama Asisten]]></text>
+            </staticText>
+            <staticText>
+                <reportElement key="" mode="Opaque" x="260" y="16" width="118" height="30" backcolor="#E6E6E6" uuid="cd1866f7-8de7-4e15-8fc1-ee852123a604"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Asisten Tetap]]></text>
+            </staticText>
+            <staticText>
+                <reportElement key="" mode="Opaque" x="378" y="16" width="100" height="30" backcolor="#E6E6E6" uuid="bdd4735b-d3aa-4e99-a4b1-fee4e1ea810d"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Sesi Jaga]]></text>
+            </staticText>
+            <staticText>
+                <reportElement key="" mode="Opaque" x="478" y="16" width="100" height="30" backcolor="#E6E6E6" uuid="4f35d2c9-184a-4c27-8a7e-8e7b81b350d4"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Baris Jaga]]></text>
+            </staticText>
+            <staticText>
+                <reportElement key="" mode="Opaque" x="678" y="16" width="107" height="30" backcolor="#E6E6E6" uuid="ee4de4c3-7196-49cb-a0b0-7c5579311ad7"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Tanggal Jaga]]></text>
+            </staticText>
+            <staticText>
+                <reportElement key="" mode="Opaque" x="578" y="16" width="100" height="30" backcolor="#E6E6E6" uuid="137fa23d-7fb6-4ad6-86fd-fc67462078d0"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Hari Jaga]]></text>
+            </staticText>
+            <staticText>
+                <reportElement key="" mode="Opaque" x="785" y="16" width="100" height="30" backcolor="#E6E6E6" uuid="43153a49-0839-4da9-a988-51f6e79f0be1"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Mata Praktikum]]></text>
+            </staticText>
+            <staticText>
+                <reportElement key="" mode="Opaque" x="885" y="16" width="100" height="30" backcolor="#E6E6E6" uuid="723e29c3-2d89-49e7-9b9b-be3e30607276"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Kelas Praktikum]]></text>
+            </staticText>
+            <staticText>
+                <reportElement key="" mode="Opaque" x="985" y="16" width="100" height="30" backcolor="#E6E6E6" uuid="73b11279-1b1b-48e2-b7da-cd2ee0a292ee"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Ruang Praktikum]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="30" splitType="Stretch">
+            <textField>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="30" uuid="02d404fe-7ad1-4091-9ae7-b6eec980ae89"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{noUrut}.intValue()+1]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="30" y="0" width="100" height="30" uuid="322fd128-e9ee-48bb-b6b2-eda3f424e0b7"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{npmAsisten}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="130" y="0" width="130" height="30" uuid="34bb09ea-5ad2-49fd-9d13-91ed4396e4e0"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{namaAsisten}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="260" y="0" width="118" height="30" uuid="b12c26c8-6501-47b7-a1a3-c90f2a22539f"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{namaAsistenTetap}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="378" y="0" width="100" height="30" uuid="ab8370ec-b613-44f8-83db-6e3e96bad28e"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{sesiJaga}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="478" y="0" width="100" height="30" uuid="5047f4ca-8875-45ac-896f-965e76049334"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{barisJaga}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="578" y="0" width="100" height="30" uuid="26901eba-f395-4dad-8de7-8b1b037ef224"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{hariJaga}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="785" y="0" width="100" height="30" uuid="032b7fd9-0244-4666-b995-a0b4cacf1c6e"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{mataPraktikum}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="885" y="0" width="100" height="30" uuid="c21ec8b8-7504-4a96-8572-4e41f2e85535"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{kelasPraktikum}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="985" y="0" width="100" height="30" uuid="66ee2eb6-f59b-4f22-98e1-d3e70ba0a9d1"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ruangPraktikum}]]></textFieldExpression>
+            </textField>
+            <textField pattern="d MMMM yyyy">
+                <reportElement x="678" y="0" width="107" height="30" uuid="5f6aa85a-e7fb-4f67-b863-070aeb067e32"/>
+                <box>
+                    <topPen lineWidth="0.5"/>
+                    <leftPen lineWidth="0.5"/>
+                    <bottomPen lineWidth="0.5"/>
+                    <rightPen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tanggalJaga}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <pageFooter>
+        <band height="17" splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+            <textField>
+                <reportElement mode="Opaque" x="0" y="4" width="1046" height="13" backcolor="#E6E6E6" uuid="44fea192-eae9-4c97-ab8d-0ea252e37b55"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement mode="Opaque" x="1046" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="921f5bc7-917e-4894-bfb9-65164c6ac746"/>
+                <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField pattern="d MMMM yyyy">
+                <reportElement positionType="Float" x="0" y="4" width="100" height="13" uuid="9cc28805-26e5-4336-a8af-d54f8b4a0002"/>
+                <textElement verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+</jasperReport>
+
