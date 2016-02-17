@@ -77,10 +77,12 @@ public class ReportController {
         LocalDate localDateAwal = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(dateAwal));
         LocalDate localDateAkhir = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(dateAKhir));
 
+		modelAndView.addObject("tanggalAwal", localDateAwal);
+		modelAndView.addObject("tanggalAkhir", localDateAkhir);
         modelAndView.addObject("dataSource", absensiAsistenRepository.findByTanggalJagaBetween(localDateAwal, localDateAkhir));
         modelAndView.addObject("format", "pdf");
 
-        modelAndView.setViewName("report_absensi_asisten");
+        modelAndView.setViewName("report_absensi_asisten_per_tanggal");
         return modelAndView;
     }
 
