@@ -12,7 +12,7 @@
     <field name="sesiJaga" class="java.lang.Integer"/>
     <field name="barisJaga" class="java.lang.String"/>
     <field name="hariJaga" class="java.lang.String"/>
-    <field name="tanggalJaga" class="java.util.Date"/>
+    <field name="tanggalJaga" class="java.time.LocalDate"/>
     <field name="mataPraktikum" class="java.lang.String"/>
     <field name="kelasPraktikum" class="java.lang.String"/>
     <field name="ruangPraktikum" class="java.lang.String"/>
