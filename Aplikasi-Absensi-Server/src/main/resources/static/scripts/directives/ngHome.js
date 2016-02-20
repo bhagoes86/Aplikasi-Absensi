@@ -19,7 +19,9 @@
   function ngHome(UrlService) {
     return {
       restrict: 'E',
-      templateUrl: UrlService.homeTemplate()
+      templateUrl: UrlService.homeTemplate(),
+      controller: 'HomeController',
+      controllerAs: 'home'
     };
   }
 
