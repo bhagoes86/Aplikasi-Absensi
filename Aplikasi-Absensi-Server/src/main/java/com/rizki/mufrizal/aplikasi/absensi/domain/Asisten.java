@@ -1,5 +1,6 @@
 package com.rizki.mufrizal.aplikasi.absensi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -39,12 +40,15 @@ public class Asisten implements Serializable {
     @Column(name = "kelas", length = 6)
     private String kelas;
 
+    @JsonIgnore
     @Column(name = "password", length = 150)
     private String password;
 
+    @JsonIgnore
     @Column(name = "enable", length = 50)
     private Boolean enable = Boolean.TRUE;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "asisten", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<AsistenRole> asistenRoles = new HashSet<>();
 
