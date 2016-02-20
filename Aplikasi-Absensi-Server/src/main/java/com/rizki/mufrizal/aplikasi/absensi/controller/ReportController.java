@@ -77,9 +77,33 @@ public class ReportController {
         LocalDate localDateAwal = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(dateAwal));
         LocalDate localDateAkhir = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(dateAKhir));
 
-		modelAndView.addObject("tanggalAwal", localDateAwal);
-		modelAndView.addObject("tanggalAkhir", localDateAkhir);
+        modelAndView.addObject("tanggalAwal", localDateAwal);
+        modelAndView.addObject("tanggalAkhir", localDateAkhir);
         modelAndView.addObject("dataSource", absensiAsistenRepository.findByTanggalJagaBetween(localDateAwal, localDateAkhir));
+        modelAndView.addObject("format", "pdf");
+
+        modelAndView.setViewName("report_absensi_asisten_per_tanggal");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/LaporanAbsensiAsistenPerTanggalDanNpmAsisten", method = RequestMethod.GET)
+    public ModelAndView generateLaporanAbsensiAsistenBerdasarkanNpmAsistenDanTanggal(
+            ModelAndView modelAndView,
+            @RequestParam(value = "npm") String npm,
+            @RequestParam(value = "tanggalAwal") String tanggalAwal,
+            @RequestParam(value = "tanggalAkhir") String tanggalAkhir) throws ParseException {
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date dateAwal = simpleDateFormat.parse(tanggalAwal);
+        Date dateAKhir = simpleDateFormat.parse(tanggalAkhir);
+
+        LocalDate localDateAwal = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(dateAwal));
+        LocalDate localDateAkhir = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(dateAKhir));
+
+        modelAndView.addObject("tanggalAwal", localDateAwal);
+        modelAndView.addObject("tanggalAkhir", localDateAkhir);
+        modelAndView.addObject("dataSource", absensiAsistenRepository.findByNpmAsistenAndTanggalJagaBetween(npm, localDateAwal, localDateAkhir));
         modelAndView.addObject("format", "pdf");
 
         modelAndView.setViewName("report_absensi_asisten_per_tanggal");
