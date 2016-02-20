@@ -35,7 +35,7 @@ public class ReportController {
     @Autowired
     private AbsensiAsistenRepository absensiAsistenRepository;
 
-    @RequestMapping(value = "/KartuAsisten", method = RequestMethod.GET)
+    @RequestMapping(value = "/KartuAsisten", method = RequestMethod.GET, produces = "application/pdf")
     public ModelAndView generateKartuAsisten(
             ModelAndView modelAndView,
             @RequestParam(value = "npm") String npm) {
@@ -52,9 +52,8 @@ public class ReportController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/LaporanAbsensiAsisten", method = RequestMethod.GET)
-    public ModelAndView generateLaporanAbsensiAsisten(
-            ModelAndView modelAndView) {
+    @RequestMapping(value = "/LaporanAbsensiAsisten", method = RequestMethod.GET, produces = "application/pdf")
+    public ModelAndView generateLaporanAbsensiAsisten(ModelAndView modelAndView) {
 
         modelAndView.addObject("dataSource", absensiAsistenRepository.findAll());
         modelAndView.addObject("format", "pdf");
@@ -63,7 +62,7 @@ public class ReportController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/LaporanAbsensiAsistenPerTanggal", method = RequestMethod.GET)
+    @RequestMapping(value = "/LaporanAbsensiAsistenPerTanggal", method = RequestMethod.GET, produces = "application/pdf")
     public ModelAndView generateLaporanAbsensiAsistenBerdasarkanTanggal(
             ModelAndView modelAndView,
             @RequestParam(value = "tanggalAwal") String tanggalAwal,
@@ -86,7 +85,7 @@ public class ReportController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/LaporanAbsensiAsistenPerTanggalDanNpmAsisten", method = RequestMethod.GET)
+    @RequestMapping(value = "/LaporanAbsensiAsistenPerTanggalDanNpmAsisten", method = RequestMethod.GET, produces = "application/pdf")
     public ModelAndView generateLaporanAbsensiAsistenBerdasarkanNpmAsistenDanTanggal(
             ModelAndView modelAndView,
             @RequestParam(value = "npm") String npm,
