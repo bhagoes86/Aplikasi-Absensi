@@ -12,7 +12,7 @@
 
 <h2 class="center">Daftar Absensi Asisten</h2>
 
-<button ng-click="absensi.cetakLaporan()" class="waves-effect waves-light btn z-depth-2 btn modal-trigger">
+<button ng-hide="absensi.dataAbsensi.length === 0" ng-click="absensi.cetakLaporan()" class="waves-effect waves-light btn z-depth-2 btn modal-trigger">
     <i class="fa fa-print"></i>
     Cetak Laporan
 </button>
