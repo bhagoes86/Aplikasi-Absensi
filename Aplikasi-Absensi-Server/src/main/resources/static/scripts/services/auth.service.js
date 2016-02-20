@@ -14,9 +14,9 @@
   angular.module('Aplikasi-Absensi')
     .factory('AuthService', AuthService);
 
-  AuthService.$inject = ['$cookies'];
+  AuthService.$inject = ['$cookies', '$state'];
 
-  function AuthService($cookies) {
+  function AuthService($cookies, $state) {
     return {
       isAuthenticate: function() {
         if ($cookies.get('token')) {
@@ -24,6 +24,11 @@
         } else {
           return false;
         }
+      },
+      logout: function() {
+        $cookies.remove('token');
+        $cookies.remove('refreshToken');
+        $state.go('login');
       }
     };
   }
