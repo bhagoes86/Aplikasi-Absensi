@@ -6,7 +6,7 @@
 
 * Sign Up Asisten
 * Lihat Daftar Hadir Asisten
-* Cetak Laporan Kehadiran Asisten per bulan, minggu
+* Cetak Laporan Kehadiran Asisten per tanggal
 * Cetak Kartu Asisten
 
 ### Android
@@ -24,7 +24,7 @@
 ### Asisten Tetap
 
 * Lihat Daftar Hadir Asisten
-* Cetak Laporan Kehadiran Asisten per bulan, minggu
+* Cetak Laporan Kehadiran Asisten per tanggal
 * Scan kehadiran Asisten
 
 ## Fitur Yang Telah Selesai
@@ -32,8 +32,3 @@
 * Cetak kartu asisten
 * Sign Up dan Sign In Asisten
 * Lihat daftar seluruh absensi asisten
-
-## Fitur Yang Belum Selesai
-
-* Cetak Daftar Absensi Asisten berdasarkan bulan, minggu dan hari
-* Lihat daftar seluruh absensi asisten berdasarkan npm / npm + dua tanggal / npm + bulan
