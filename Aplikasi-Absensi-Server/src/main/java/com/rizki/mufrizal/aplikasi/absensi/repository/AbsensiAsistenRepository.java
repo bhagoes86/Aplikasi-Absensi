@@ -37,4 +37,7 @@ public interface AbsensiAsistenRepository extends PagingAndSortingRepository<Abs
 
     @PreAuthorize("permitAll")
     public Iterable<AbsensiAsisten> findByTanggalJagaBetween(LocalDate tanggalAwal, LocalDate tanggalAkhir);
+
+    @PreAuthorize("permitAll")
+    public Iterable<AbsensiAsisten> findByNpmAsistenAndTanggalJagaBetween(String npmAsisten, LocalDate tanggalAwal, LocalDate tanggalAkhir);
 }
