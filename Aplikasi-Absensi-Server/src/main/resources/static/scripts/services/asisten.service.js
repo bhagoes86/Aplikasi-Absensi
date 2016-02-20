@@ -20,6 +20,9 @@
     return {
       registrasiAsisten: function(asisten) {
         return $http.post(UrlService.registrasiAsisten(), asisten);
+      },
+      getAsisten: function(npm) {
+        return $http.get(UrlService.getAsisten(npm));
       }
     };
   }
