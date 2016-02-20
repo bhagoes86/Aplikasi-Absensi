@@ -37,7 +37,9 @@
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
                 'scripts/services/url.service.js',
-                'scripts/directives/ngHome.js'
+                'scripts/directives/ngHome.js',
+                'scripts/services/asisten.service.js',
+                'scripts/controllers/home.controller.js'
               ]);
             }]
           },
@@ -94,6 +96,7 @@
                 'scripts/services/url.service.js',
                 'scripts/directives/ngAbsensi.js',
                 'scripts/services/absensi.service.js',
+                'scripts/services/auth.service.js',
                 'scripts/controllers/absensi.controller.js'
               ]);
             }]
