@@ -45,6 +45,23 @@
           },
           authenticate: false
         })
+        .state('about', {
+          url: '/about',
+          views: {
+            'lazyLoadView': {
+              template: '<ng-about></ng-about>'
+            }
+          },
+          resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+              return $ocLazyLoad.load([
+                'scripts/services/url.service.js',
+                'scripts/directives/ngAbout.js'
+              ]);
+            }]
+          },
+          authenticate: false
+        })
         .state('asisten', {
           url: '/asisten',
           views: {
