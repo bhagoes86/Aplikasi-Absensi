@@ -27,6 +27,16 @@
             'Authorization': 'Bearer ' + $cookies.get('token')
           }
         });
+      },
+      searchAbsensiAsistenByNpm: function(npm, page, size) {
+        return $http({
+          method: 'GET',
+          url: UrlService.searchAbsensiAsistenByNpm(npm, page, size),
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + $cookies.get('token')
+          }
+        });
       }
     };
   }
