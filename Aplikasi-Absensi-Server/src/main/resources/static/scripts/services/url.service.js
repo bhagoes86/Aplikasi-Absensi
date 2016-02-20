@@ -27,6 +27,9 @@
       authenticateTemplate: function() {
         return 'templates/authenticate.template.html';
       },
+      aboutTemplate: function() {
+        return 'templates/about.template.html';
+      },
       registrasiAsisten: function() {
         return 'api/asisten';
       },
