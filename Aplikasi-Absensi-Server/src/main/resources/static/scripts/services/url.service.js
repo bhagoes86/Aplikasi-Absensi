@@ -35,6 +35,12 @@
       },
       getAllAbsensiAsisten: function(page, size) {
         return 'api/absensi?page=' + page + '&size=' + size;
+      },
+      searchAbsensiAsistenByNpm: function(npm, page, size) {
+        return 'api/absensi/search/asisten?npmAsisten=' + npm + '&page=' + page + '&size=' + size;
+      },
+      getAsisten: function(npm) {
+        return '/api/asisten/' + npm;
       }
     };
   }
