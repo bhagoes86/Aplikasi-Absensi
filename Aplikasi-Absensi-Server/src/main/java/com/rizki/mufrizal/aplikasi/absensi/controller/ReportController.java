@@ -1,8 +1,13 @@
 package com.rizki.mufrizal.aplikasi.absensi.controller;
 
 import com.rizki.mufrizal.aplikasi.absensi.domain.Asisten;
+import com.rizki.mufrizal.aplikasi.absensi.repository.AbsensiAsistenRepository;
 import com.rizki.mufrizal.aplikasi.absensi.repository.AsistenRepository;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +32,10 @@ public class ReportController {
     @Autowired
     private AsistenRepository asistenRepository;
 
-    @RequestMapping(value = "/KartuAsisten", method = RequestMethod.GET)
+    @Autowired
+    private AbsensiAsistenRepository absensiAsistenRepository;
+
+    @RequestMapping(value = "/KartuAsisten", method = RequestMethod.GET, produces = "application/pdf")
     public ModelAndView generateKartuAsisten(
             ModelAndView modelAndView,
             @RequestParam(value = "npm") String npm) {
@@ -41,6 +49,63 @@ public class ReportController {
         modelAndView.addObject("format", "pdf");
 
         modelAndView.setViewName("report_kartu_asisten");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/LaporanAbsensiAsisten", method = RequestMethod.GET, produces = "application/pdf")
+    public ModelAndView generateLaporanAbsensiAsisten(ModelAndView modelAndView) {
+
+        modelAndView.addObject("dataSource", absensiAsistenRepository.findAll());
+        modelAndView.addObject("format", "pdf");
+
+        modelAndView.setViewName("report_absensi_asisten");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/LaporanAbsensiAsistenPerTanggal", method = RequestMethod.GET, produces = "application/pdf")
+    public ModelAndView generateLaporanAbsensiAsistenBerdasarkanTanggal(
+            ModelAndView modelAndView,
+            @RequestParam(value = "tanggalAwal") String tanggalAwal,
+            @RequestParam(value = "tanggalAkhir") String tanggalAkhir) throws ParseException {
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date dateAwal = simpleDateFormat.parse(tanggalAwal);
+        Date dateAKhir = simpleDateFormat.parse(tanggalAkhir);
+
+        LocalDate localDateAwal = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(dateAwal));
+        LocalDate localDateAkhir = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(dateAKhir));
+
+        modelAndView.addObject("tanggalAwal", localDateAwal);
+        modelAndView.addObject("tanggalAkhir", localDateAkhir);
+        modelAndView.addObject("dataSource", absensiAsistenRepository.findByTanggalJagaBetween(localDateAwal, localDateAkhir));
+        modelAndView.addObject("format", "pdf");
+
+        modelAndView.setViewName("report_absensi_asisten_per_tanggal");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/LaporanAbsensiAsistenPerTanggalDanNpmAsisten", method = RequestMethod.GET, produces = "application/pdf")
+    public ModelAndView generateLaporanAbsensiAsistenBerdasarkanNpmAsistenDanTanggal(
+            ModelAndView modelAndView,
+            @RequestParam(value = "npm") String npm,
+            @RequestParam(value = "tanggalAwal") String tanggalAwal,
+            @RequestParam(value = "tanggalAkhir") String tanggalAkhir) throws ParseException {
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date dateAwal = simpleDateFormat.parse(tanggalAwal);
+        Date dateAKhir = simpleDateFormat.parse(tanggalAkhir);
+
+        LocalDate localDateAwal = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(dateAwal));
+        LocalDate localDateAkhir = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(dateAKhir));
+
+        modelAndView.addObject("tanggalAwal", localDateAwal);
+        modelAndView.addObject("tanggalAkhir", localDateAkhir);
+        modelAndView.addObject("dataSource", absensiAsistenRepository.findByNpmAsistenAndTanggalJagaBetween(npm, localDateAwal, localDateAkhir));
+        modelAndView.addObject("format", "pdf");
+
+        modelAndView.setViewName("report_absensi_asisten_per_tanggal");
         return modelAndView;
     }
 
