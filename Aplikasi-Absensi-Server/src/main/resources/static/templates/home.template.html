@@ -15,6 +15,30 @@
         <h5 class="header col s12 light">Aplikasi absensi berfungsi untuk melihat daftar kehadiran asisten</h5>
     </div>
     <div class="row center">
-        <a class="btn-large waves-effect waves-light btn green">Get Started</a>
+        <a ng-click="home.cetakKartu()" class="btn-large waves-effect waves-light btn green">Cetak Kartu Asisten</a>
+    </div>
+</div>
+
+<div id="modalKartu" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Cetak Kartu Asisten</h4>
+
+        <div class="row">
+            <form class="col s12">
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input ng-model="npm" id="npm" type="text" class="validate">
+                        <label for="npm">NPM</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button ng-click="home.checkAsisten(npm)" type="button" class="waves-effect waves-green btn-flat z-depth-2">Cetak Kartu Asisten</button>
+        <button type="button" class="waves-effect waves-green btn-flat z-depth-2 orange">Batal</button>
     </div>
 </div>
