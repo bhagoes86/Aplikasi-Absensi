@@ -16,17 +16,24 @@ angular.module('Aplikasi-Absensi')
     $scope.modalInputDataAsisten = {};
     $scope.inputAbsensiAsisten = {};
     $scope.dataAbsensiAsisten = {};
+    $scope.enable = true;
 
-    function inputDataAsisten() {
+    $scope.inputDataAsisten = function() {
+
+      if ($scope.dataAbsensiAsisten.namaAsistenTetap) {
+        $scope.enable = false;
+      } else {
+        $scope.enable = true;
+      }
+
       $ionicModal.fromTemplateUrl('templates/inputDataAsisten.html', {
         scope: $scope
       }).then(function(modal) {
         $scope.modalInputDataAsisten = modal;
         $scope.modalInputDataAsisten.show();
       });
-    }
 
-    inputDataAsisten();
+    };
 
     $scope.simpanAbsensiAsisten = function(a) {
       var d = new Date();
@@ -50,46 +57,58 @@ angular.module('Aplikasi-Absensi')
         .scan()
         .then(function(barcodeData) {
 
-          $scope.hasilScan = barcodeData.text;
-
-          AbsensiService.checkNpmAsisten(barcodeData.text).success(function(data) {
-
-            $scope.dataAbsensiAsisten.npmAsisten = barcodeData.text;
-            $scope.dataAbsensiAsisten.namaAsisten = data.nama;
-
-            AbsensiService.simpanAbsensiAsisten($scope.dataAbsensiAsisten).success(function(data) {
-              $ionicPopup.show({
-                template: 'Berhasil melakukan absensi',
-                title: 'Info',
-                scope: $scope,
-                buttons: [{
-                  text: '<b>OK</b>',
-                  type: 'button-positive'
-                }]
-              });
-            }).error(function(data, status) {
-              $ionicPopup.show({
-                template: 'Maaf sedang terjadi kesalahan',
-                title: 'Info',
-                scope: $scope,
-                buttons: [{
-                  text: '<b>OK</b>',
-                  type: 'button-positive'
-                }]
-              });
-            });
-
-          }).error(function(data, status) {
+          if (barcodeData.text == '' || barcodeData.text === '') {
             $ionicPopup.show({
-              template: 'Maaf Data asisten tidak ditemukan',
-              title: 'Warning',
+              template: 'format barcode tidak terdeteksi, silahkan scan ulang',
+              title: 'Info',
               scope: $scope,
               buttons: [{
                 text: '<b>OK</b>',
                 type: 'button-positive'
               }]
             });
-          });
+          } else {
+            $scope.hasilScan = barcodeData.text;
+
+            AbsensiService.checkNpmAsisten(barcodeData.text).success(function(data) {
+
+              $scope.dataAbsensiAsisten.npmAsisten = barcodeData.text;
+              $scope.dataAbsensiAsisten.namaAsisten = data.nama;
+
+              AbsensiService.simpanAbsensiAsisten($scope.dataAbsensiAsisten).success(function(data) {
+                $ionicPopup.show({
+                  template: 'Berhasil melakukan absensi',
+                  title: 'Info',
+                  scope: $scope,
+                  buttons: [{
+                    text: '<b>OK</b>',
+                    type: 'button-positive'
+                  }]
+                });
+              }).error(function(data, status) {
+                $ionicPopup.show({
+                  template: 'Maaf sedang terjadi kesalahan',
+                  title: 'Info',
+                  scope: $scope,
+                  buttons: [{
+                    text: '<b>OK</b>',
+                    type: 'button-positive'
+                  }]
+                });
+              });
+
+            }).error(function(data, status) {
+              $ionicPopup.show({
+                template: 'Maaf Data asisten tidak ditemukan',
+                title: 'Warning',
+                scope: $scope,
+                buttons: [{
+                  text: '<b>OK</b>',
+                  type: 'button-positive'
+                }]
+              });
+            });
+          }
 
         }, function(error) {
           $ionicPopup.show({

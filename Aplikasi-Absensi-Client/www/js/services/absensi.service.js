@@ -13,7 +13,6 @@ angular.module('Aplikasi-Absensi')
   .factory('AbsensiService', ['$http', function($http) {
 
     var baseUrl = 'http://192.168.2.116:8080';
-    //var baseUrl = 'http://127.0.0.1:8080';
 
     return {
       simpanAbsensiAsisten: function(absensi) {

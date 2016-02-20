@@ -12,7 +12,14 @@
 
 <h2 class="center">Daftar Absensi Asisten</h2>
 
-<table class="bordered striped highlight centered responsive-table z-depth-2" ng-hide="absensi.dataAbsensi.length === 0">
+<button ng-click="absensi.cetakLaporan()" class="waves-effect waves-light btn z-depth-2 btn modal-trigger">
+    <i class="fa fa-print"></i>
+    Cetak Laporan
+</button>
+
+<p></p>
+
+<table class="bordered highlight centered responsive-table z-depth-2" ng-hide="absensi.dataAbsensi.length === 0">
     <thead>
         <tr>
             <th>Kelas Praktikum</th>
@@ -36,7 +43,7 @@
             <td>{{a.namaAsisten}}</td>
             <td>{{a.barisJaga}}</td>
             <td>{{a.hariJaga}}</td>
-            <td>{{a.tanggalJaga}}</td>
+            <td>{{a.tanggalJaga.dayOfMonth}} {{a.tanggalJaga.month}} {{a.tanggalJaga.year}}</td>
             <td>{{a.sesiJaga}}</td>
             <td>{{a.namaAsistenTetap}}</td>
         </tr>
@@ -62,5 +69,47 @@
         <div class="card-content">
             <p>Maaf, data absensi asisten masih kosong</p>
         </div>
+    </div>
+</div>
+
+<div id="modalLaporan" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Cetak Laporan</h4>
+
+        <div class="row">
+            <form class="col s12">
+
+                <input ng-model="enable" type="checkbox" id="all"/>
+                <label for="all">Semua Laporan</label>
+
+                <input ng-disabled="enable" ng-model="enableNpm" type="checkbox" id="npm1"/>
+                <label for="npm1">Input NPM
+                    {{enableNpm}}</label>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input ng-model="npm" id="npm" type="text" ng-disabled="enable || enableNpm === false || enableNpm === '' || enableNpm === undefined" class="validate">
+                        <label for="npm">NPM</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input ng-model="tanggalAwal" placeholder="yyyy-mm-dd" ng-disabled="enable" id="tanggalAwal" type="text">
+                        <label for="tanggalAwal">Tanggal Awal</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input ng-model="tanggalAkhir" placeholder="yyyy-mm-dd" ng-disabled="enable" id="tanggalAkhir" type="text">
+                        <label for="tanggalAkhir">Tanggal Akhir</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button ng-click="absensi.cetakLaporanBerdasarkan(enable, enableNpm, npm, tanggalAwal, tanggalAkhir)" type="button" class="modal-action modal-close waves-effect waves-green btn-flat z-depth-2">Cetak Laporan</button>
+        <button type="button" class="modal-action modal-close waves-effect waves-green btn-flat z-depth-2 orange">Batal</button>
     </div>
 </div>

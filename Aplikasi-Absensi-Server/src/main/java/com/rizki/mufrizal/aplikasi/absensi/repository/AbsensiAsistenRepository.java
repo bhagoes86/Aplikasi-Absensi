@@ -1,6 +1,7 @@
 package com.rizki.mufrizal.aplikasi.absensi.repository;
 
 import com.rizki.mufrizal.aplikasi.absensi.domain.AbsensiAsisten;
+import java.time.LocalDate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -29,4 +30,14 @@ public interface AbsensiAsistenRepository extends PagingAndSortingRepository<Abs
     @PreAuthorize("permitAll")
     @Override
     public <S extends AbsensiAsisten> S save(S s);
+
+    @PreAuthorize("permitAll")
+    @Override
+    public Iterable<AbsensiAsisten> findAll();
+
+    @PreAuthorize("permitAll")
+    public Iterable<AbsensiAsisten> findByTanggalJagaBetween(LocalDate tanggalAwal, LocalDate tanggalAkhir);
+
+    @PreAuthorize("permitAll")
+    public Iterable<AbsensiAsisten> findByNpmAsistenAndTanggalJagaBetween(String npmAsisten, LocalDate tanggalAwal, LocalDate tanggalAkhir);
 }

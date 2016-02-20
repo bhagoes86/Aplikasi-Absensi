@@ -63,6 +63,20 @@
       return true;
     };
 
+    absensi.cetakLaporan = function() {
+      $('#modalLaporan').openModal();
+    };
+
+    absensi.cetakLaporanBerdasarkan = function(enable, enableNpm, npm, tanggalAwal, tanggalAkhir) {
+      if (enable) {
+        window.open('/LaporanAbsensiAsisten', '_blank');
+      } else if (enableNpm) {
+        window.open('/LaporanAbsensiAsistenPerTanggalDanNpmAsisten?npm=' + npm + '&tanggalAwal=' + tanggalAwal + '&tanggalAkhir=' + tanggalAkhir, '_blank');
+      } else {
+        window.open('/LaporanAbsensiAsistenPerTanggal?tanggalAwal=' + tanggalAwal + '&tanggalAkhir=' + tanggalAkhir, '_blank');
+      }
+    };
+
   }
 
 })();
