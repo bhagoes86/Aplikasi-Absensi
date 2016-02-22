@@ -40,7 +40,6 @@ public class Asisten implements Serializable {
     @Column(name = "kelas", length = 6)
     private String kelas;
 
-    @JsonIgnore
     @Column(name = "password", length = 150)
     private String password;
 
