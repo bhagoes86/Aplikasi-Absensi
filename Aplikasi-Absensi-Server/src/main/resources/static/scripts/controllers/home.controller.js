@@ -34,6 +34,10 @@
       });
     };
 
+    home.close = function() {
+      $('#modalKartu').closeModal();
+    };
+
   }
 
 })();
