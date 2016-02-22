@@ -12,8 +12,8 @@
 angular.module('Aplikasi-Absensi')
   .factory('AbsensiService', ['$http', function($http) {
 
-    //var baseUrl = 'http://192.168.2.116:8080';
-    var baseUrl = 'http://absensi-asisten.rhcloud.com';
+    var baseUrl = 'http://192.168.2.116:8080';
+    //var baseUrl = 'http://absensi-asisten.rhcloud.com';
 
     return {
       simpanAbsensiAsisten: function(absensi) {
