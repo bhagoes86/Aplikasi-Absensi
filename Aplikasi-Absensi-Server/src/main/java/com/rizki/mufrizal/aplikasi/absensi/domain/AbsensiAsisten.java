@@ -1,5 +1,9 @@
 package com.rizki.mufrizal.aplikasi.absensi.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.rizki.mufrizal.aplikasi.absensi.serialization.LocalDateDeserializer;
+import com.rizki.mufrizal.aplikasi.absensi.serialization.LocalDateSerializer;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -50,6 +54,8 @@ public class AbsensiAsisten implements Serializable {
     @Column(name = "hari", length = 10)
     private String hariJaga;
 
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Column(name = "tanggal_jaga")
     private LocalDate tanggalJaga;
 
