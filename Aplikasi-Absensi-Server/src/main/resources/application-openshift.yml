@@ -14,10 +14,10 @@
         active: openshift
     
     datasource: 
-        driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://${OPENSHIFT_POSTGRESQL_DB_HOST}:${OPENSHIFT_POSTGRESQL_DB_PORT}/${OPENSHIFT_APP_NAME}?autoReconnect=true
-        username: ${OPENSHIFT_POSTGRESQL_DB_USERNAME}
-        password: ${OPENSHIFT_POSTGRESQL_DB_PASSWORD}
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://${OPENSHIFT_MYSQL_DB_HOST}:${OPENSHIFT_MYSQL_DB_PORT}/${OPENSHIFT_APP_NAME}?autoReconnect=true
+        username: ${OPENSHIFT_MYSQL_DB_USERNAME}
+        password: ${OPENSHIFT_MYSQL_DB_PASSWORD}
         poolName: SpringBootHikariCP
         maximumPoolSize: 5
         minimumIdle: 3
@@ -32,7 +32,7 @@
         properties: 
             hibernate: 
                 format_sql: true
-        database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+        database-platform: org.hibernate.dialect.MySQL5Dialect
 
     # jackson config
     jackson: 
