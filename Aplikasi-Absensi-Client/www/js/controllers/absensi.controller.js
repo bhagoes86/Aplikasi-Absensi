@@ -46,9 +46,10 @@ angular.module('Aplikasi-Absensi')
       $scope.dataAbsensiAsisten.ruangPraktikum = a.ruangPraktikum;
       $scope.dataAbsensiAsisten.sesiJaga = a.sesiJaga;
       $scope.dataAbsensiAsisten.hariJaga = hari[d.getDay()];
-      $scope.dataAbsensiAsisten.tanggalJaga = d;
+      $scope.dataAbsensiAsisten.tanggalJaga = moment(d).format("YYYY-MM-DD");
 
       $scope.modalInputDataAsisten.hide();
+
     };
 
     $scope.scanBarcode = function() {
@@ -87,7 +88,7 @@ angular.module('Aplikasi-Absensi')
                 });
               }).error(function(data, status) {
                 $ionicPopup.show({
-                  template: 'Maaf sedang terjadi kesalahan',
+                  template: 'Maaf sedang terjadi kesalahan' + angular.toJson(data),
                   title: 'Info',
                   scope: $scope,
                   buttons: [{
